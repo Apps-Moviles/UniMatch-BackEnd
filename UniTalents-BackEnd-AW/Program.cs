@@ -126,7 +126,15 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 
 // 📦 Swagger
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Title = "UniMatch-BackEnd-AW",
+        Version = "v1",
+        Description = "Documentación de la API de UniMatch"
+    });
+});
 
 // 🎮 Controllers
 builder.Services.AddControllers();
